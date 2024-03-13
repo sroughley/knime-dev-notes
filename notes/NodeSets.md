@@ -25,4 +25,16 @@ The `plugin.xml` file has a block for the Node Set along the following lines:
     </extension>
 ```
 
+* `default-category-icon` points to an icon to use for any node categories created in the node repository for which an icon is not provided
+* `deprecated` indicates whether _all_ nodes in this Node Set are deprecated
+* `factory-class` - hopefully fairly obvious - in this case a `NodeSetFactory` rather than a `NodeFactory`
+* `id` - no longer use, so can be ignored or not included at all
+
 ## 'NodeSetFactory' implementation
+
+## NodeFactory implementation
+
+## NodeModel and NodeDialogPane implementations
+
+## Deprecating individual nodes in a Node Set
+
