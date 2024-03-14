@@ -101,12 +101,16 @@ public ConfigRO getAdditionalSettings(String id) {
 
 ### isHidden()
 This is a `default` method in the `NodeSetFactory` interface.  In most cases, it will not need to be overridden.  However, if the 
-node set is a set of 'hidden' nodes, then it does need to be overridden.  NB it is not possible to mix hidden and non-hidden nodes 
-in a single set
+node set is a set of 'hidden' nodes, then it does need to be overridden
 
 ## NodeFactory implementation
 
 ## NodeModel and NodeDialogPane implementations
 
-## Deprecating individual nodes in a Node Set
-
+## Deprecating or Hiding individual nodes in a Node Set
+Full Node Sets can be deprecated by setting the `deprecated` property in the `plugin.xml` `nodeset` block, and full Node Sets 
+can be hidden by returning `false` from [NodeSetFactory#isHidden()](#ishidden)
+However, there is no documented mechanism for deprecating or hiding individual nodes within a Node Set. It is possible to achieve this as follows:
+1. Do not return IDs for hidden/deprecated nodes from [NodeSetFactory#getNodeFactoryIds()](#getnodefactoryids)
+2. Ensure that the [NodeFactory](#nodefactory-implementation) / Node Description returns a correct node name (i.e. with the suffix ` (Deprecated)`)
+3. Ensure that the [NodeFactory](#nodefactory-implementation) / Node Description correctly marks the node as deprecated / hidden
